@@ -36,7 +36,7 @@ public class ApiCommunication extends AppCompatActivity {
         beaconMinor = intent.getStringExtra(IBEACON_MINOR);
 
         // Replace dashes in the UUID to a single string
-        beaconUUID.replace('-', ' ');
+        beaconUUID = beaconUUID.replaceAll("-", "");
 
         // UI
         infoArray[0] = userEmailAddress;
