@@ -75,6 +75,15 @@ public class MainActivity extends AppCompatActivity {
 
         RestfulRequest.MyApiEndpointInterface apiService =
                 retrofit.create(RestfulRequest.MyApiEndpointInterface.class);  //
+        /*
+        In the system, there are two calls. The first call is to the /beacon resource. The post is UUID, major, minor.
+        This will return a JSON that will contain the beacon UUID as a map key, and the major, minor, and URL extensions
+        are listed inside. 
+        The URL extensions are then extracted. Then, a second call is made, this time to the /organizations/{URL-Extension}.
+        The post is username (only user that works currently is user1@test.com), UUID, major, minor.
+        Additional Information can be found in the discussion on canvas.
+        */
+        
         User test = new User("email@email.com", "4152554efaab4a3b86d0947070693a77", 1, 1);  // Sample JSON to test the Web API
         Call<User> mycall = apiService.postBeacon(test);
         mycall.enqueue(new Callback<User>() {
