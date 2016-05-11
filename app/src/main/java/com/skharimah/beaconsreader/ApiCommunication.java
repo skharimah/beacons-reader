@@ -55,6 +55,8 @@ public class ApiCommunication extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // Disable back button
+        Intent intent = new Intent(ApiCommunication.this, BluetoothActivity.class);
+        intent.putExtra(BluetoothActivity.EXTRA_MESSAGE, userEmailAddress);
+        startActivity(intent);
     }
 }
